@@ -41,6 +41,7 @@
   "honorificPrefix": "Dr",
   "honorificSuffix": "PhD, FRICS, MHKIS, MAIBS, MAIPM",
   "jobTitle": "Assistant Professor and Programme Leader, BSc (Hons) in Surveying",
+  "email": "mailto:mcpsing@outlook.com",
   "worksFor": {"@type": "CollegeOrUniversity", "name": "The Hong Kong Polytechnic University"},
   "affiliation": [
     {"@type": "CollegeOrUniversity", "name": "University of Canberra"},
@@ -105,7 +106,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 84px; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 92px; }
 body {
   margin: 0;
   background: var(--paper);
@@ -169,9 +170,19 @@ a:hover { color: var(--accent-hover); text-decoration-thickness: 2px; }
 }
 .site-header.is-scrolled { border-bottom-color: var(--rule); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 72px; }
-.wordmark { display: inline-block; padding: 12px 0 9px; white-space: nowrap; font-family: var(--sans); font-weight: 700; font-size: 1.0625rem; letter-spacing: -.01em; color: var(--ink); text-decoration: none; }
+.wordmark { display: inline-flex; align-items: center; gap: 12px; padding: 10px 0; white-space: nowrap; font-family: var(--sans); color: var(--ink); text-decoration: none; }
 .wordmark:hover { color: var(--ink); }
-.wordmark small { font-weight: 400; font-size: .875rem; color: var(--steel); margin-left: .4em; }
+.wm-mark { flex: none; display: grid; place-items: center; width: 42px; height: 42px; padding-top: 3px; border-radius: 10px; background: linear-gradient(140deg, var(--accent) 0%, var(--accent-hover) 100%); color: #fff; font-weight: 800; font-size: .9375rem; letter-spacing: .03em; box-shadow: 0 10px 20px -12px rgba(29, 95, 158, .8); transition: transform .3s var(--ease); }
+.wordmark:hover .wm-mark { transform: translateY(-1px); }
+.wm-text { display: flex; flex-direction: column; gap: 4px; }
+.wm-name { font-weight: 800; font-size: 1.125rem; line-height: 1.05; letter-spacing: -.015em; padding-top: 3px; }
+.wm-creds { font-weight: 700; font-size: .6875rem; line-height: 1.1; letter-spacing: .12em; color: var(--accent-deep); }
+.wm-creds i { display: inline-block; width: 3px; height: 3px; margin: 0 7px 0 6px; border-radius: 50%; background: var(--accent); opacity: .75; vertical-align: 4.5px; font-size: 0; }
+.brand { display: flex; flex-direction: column; align-items: flex-start; padding: 8px 0 6px; min-width: 0; }
+.brand .wordmark { padding: 0; }
+.wm-email { display: inline-flex; align-items: center; gap: 6px; margin-left: 54px; margin-top: 1px; padding: 4px 0 2px; font-family: var(--sans); font-size: .8125rem; line-height: 1.2; color: var(--steel); text-decoration: none; white-space: nowrap; }
+.wm-email .icon { width: 14px; height: 14px; margin-top: -2px; color: var(--accent); }
+.wm-email:hover { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
 .nav { display: flex; align-items: center; gap: clamp(20px, 2.6vw, 36px); }
 .nav-list { display: flex; gap: clamp(18px, 2.4vw, 32px); list-style: none; margin: 0; padding: 0; }
 .nav-list a {
@@ -304,6 +315,21 @@ a:hover { color: var(--accent-hover); text-decoration-thickness: 2px; }
 .bring-item { border-top: 2px solid var(--ink); padding-top: 24px; display: flex; flex-direction: column; }
 .bring-item h3 { font-size: var(--step-2); font-weight: 700; line-height: 1.2; letter-spacing: -.01em; margin-bottom: 14px; }
 .bring-item p { font-size: 1.0625rem; color: var(--ink-soft); margin-bottom: 20px; }
+.bring-big { display: flex; flex-direction: column; gap: 4px; margin: 0 0 18px !important; }
+.bring-big .num { font-family: var(--sans); font-weight: 800; font-size: clamp(2.2rem, 1.6rem + 1.8vw, 3rem); line-height: 1; letter-spacing: -.03em; color: var(--accent-deep); padding-top: 4px; }
+.bring-unit { font-family: var(--sans); font-size: .9375rem; line-height: 1.4; color: var(--ink-soft); }
+.bring-list { list-style: none; margin: 0 0 20px; padding: 0; border-top: 1px solid var(--rule); }
+.bring-list li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 1rem; line-height: 1.5; color: var(--ink-soft); }
+.bring-list li > strong { font-family: var(--sans); font-weight: 800; font-size: 1.25rem; line-height: 1.2; color: var(--ink); padding-top: 2px; }
+.bring-list-plain li { grid-template-columns: minmax(0, 1fr); }
+.bring-list strong { color: var(--ink); font-weight: 600; }
+.fund-sig { margin-top: auto; padding-top: 4px; }
+.fund-sig-label { margin: 0 0 10px; font-family: var(--sans); font-size: .875rem; font-weight: 700; line-height: 1.4; color: var(--ink); }
+.fund-chips { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.fund-chips li { display: flex; flex-direction: column; gap: 3px; padding: 10px 12px 11px; background: var(--surface); border: 1px solid var(--accent-tint); border-left: 3px solid var(--accent); border-radius: var(--radius); }
+.fund-chips strong { font-family: var(--sans); font-weight: 800; font-size: 1.125rem; line-height: 1.15; letter-spacing: .01em; color: var(--accent-deep); padding-top: 2px; }
+.fund-chips span { font-family: var(--sans); font-size: .75rem; line-height: 1.4; color: var(--steel); }
+.bring-item .btn-statement { align-self: flex-start; margin-top: 16px; }
 .bring-item .proof { margin-top: auto; margin-bottom: 0; padding-top: 14px; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: .875rem; line-height: 1.5; color: var(--steel); }
 
 /* ---------- Research ---------- */
@@ -432,6 +458,17 @@ a:hover { color: var(--accent-hover); text-decoration-thickness: 2px; }
 
 /* project details window */
 html.modal-open { overflow: hidden; }
+.modal.modal-narrow { width: min(780px, calc(100% - 32px)); }
+.stmt-lede { margin: 0 0 18px; font-size: 1.125rem; line-height: 1.6; color: var(--ink); }
+.stmt-figs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0 0 18px; }
+.stmt-figs div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; padding: 12px 16px; background: var(--wash); border-radius: var(--radius); }
+.stmt-figs dd { margin: 0; font-family: var(--sans); font-weight: 800; font-size: clamp(1.4rem, 1.1rem + .9vw, 1.75rem); line-height: 1.1; letter-spacing: -.02em; color: var(--accent-deep); padding-top: 3px; }
+.stmt-figs dt { font-family: var(--sans); font-size: .8125rem; line-height: 1.4; color: var(--steel); }
+.stmt-points { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.stmt-points li { padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 1rem; line-height: 1.6; color: var(--ink-soft); }
+.stmt-points strong { color: var(--ink); font-weight: 700; }
+.stmt-next { margin: 18px 0 0; padding: 12px 16px; border-left: 3px solid var(--ochre); background: rgba(201, 138, 27, .08); border-radius: 0 var(--radius) var(--radius) 0; font-size: 1rem; line-height: 1.55; color: var(--ink); }
+.stmt-next strong { font-family: var(--sans); font-weight: 700; color: var(--ochre-text); }
 .modal { padding: 0; border: 0; border-radius: 20px; width: min(1120px, calc(100% - 32px)); max-width: none; max-height: calc(100% - 48px); background: var(--surface); color: var(--ink); box-shadow: 0 40px 120px -40px rgba(16, 36, 58, .65); overflow: hidden; }
 .modal[open] { display: flex; flex-direction: column; animation: modal-in .25s var(--ease); }
 .modal::backdrop { background: rgba(16, 36, 58, .55); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
@@ -700,7 +737,9 @@ html.modal-open { overflow: hidden; }
   .scene-hint { display: none; }
   .scene-label { font-size: .75rem; padding: 6px 10px 3px; }
   .scene-tab { padding: 6px 10px 3px; font-size: .8125rem; }
-  .wordmark small { display: none; }
+  .wm-mark { width: 38px; height: 38px; border-radius: 9px; font-size: .875rem; }
+  .wm-name { font-size: 1.0625rem; }
+  .wm-email { margin-left: 50px; }
   .hero-actions .btn { flex: 1 1 100%; }
   .record-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
   .record-item { padding-left: 12px; }
@@ -732,6 +771,10 @@ html.modal-open { overflow: hidden; }
   .db-axis { margin: 0 8px; }
   .tutor-stats:not(.teaser-stats) { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .modal { width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
+  .modal.modal-narrow { width: 100%; }
+  .stmt-figs { gap: 8px; }
+  .stmt-figs div { padding: 12px 10px; }
+  .stmt-lede { font-size: 1.0625rem; }
   .teaser-actions .btn { flex: 1 1 100%; }
   .tutor-stats:not(.teaser-stats) li { display: flex; align-items: baseline; gap: 10px; }
   .tutor-stats:not(.teaser-stats) strong { display: inline; font-size: 1.25rem; min-width: 84px; }
@@ -768,6 +811,7 @@ html.modal-open { overflow: hidden; }
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="m4 7 8 6 8-6"/></symbol>
   <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4.5h5.5V10M19.5 4.5 11 13M18 14v4.5a1 1 0 0 1-1 1H5.5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1H10"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6.5 3.5h7.5l4.5 4.5v12.5h-12z"/><path d="M14 3.5V8h4.5M9 12.5h6M9 16h6"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
   <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l4.5-5"/><circle cx="12" cy="16" r="1.2"/></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.5 5.5h15v10h-9l-4.5 4v-4h-1.5z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01"/></symbol>
@@ -777,7 +821,13 @@ html.modal-open { overflow: hidden; }
 
 <header class="site-header" id="top">
   <div class="wrap header-inner">
-    <a class="wordmark" href="#top">Michael C.P. Sing <small>PhD FRICS MHKIS</small></a>
+    <div class="brand">
+      <a class="wordmark" href="#top" aria-label="Michael C.P. Sing, PhD, FRICS, MHKIS: back to top">
+        <span class="wm-mark" aria-hidden="true">MS</span>
+        <span class="wm-text" aria-hidden="true"><span class="wm-name">Michael C.P. Sing</span><span class="wm-creds">PhD<i>·</i>FRICS<i>·</i>MHKIS</span></span>
+      </a>
+      <a class="wm-email" href="mailto:mcpsing@outlook.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>mcpsing@outlook.com</a>
+    </div>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span>Menu</span>
     </button>
@@ -870,14 +920,14 @@ html.modal-open { overflow: hidden; }
           <div class="record-item"><dt>Refereed journal articles</dt><dd class="num">98</dd></div>
           <div class="record-item"><dt>Citations, with an h&#8209;index of 35<sup><a href="#note-a" aria-label="Note a">a</a></sup></dt><dd class="num">4,899</dd></div>
           <div class="record-item"><dt>Of my journal papers in Scopus top&#8209;10% journals<sup><a href="#note-b" aria-label="Note b">b</a></sup></dt><dd class="num">65%</dd></div>
-          <div class="record-item"><dt>Research and consultancy funding across my career<sup><a href="#note-c" aria-label="Note c">c</a></sup></dt><dd class="num"><span class="cur">HK$</span>23.6M</dd></div>
+          <div class="record-item"><dt>Research and consultancy funding across my career<sup><a href="#note-c" aria-label="Note c">c</a></sup></dt><dd class="num"><span class="cur">HK$</span>22.6M</dd></div>
           <div class="record-item"><dt>PhD candidates supervised to completion, three current</dt><dd class="num">6</dd></div>
           <div class="record-item"><dt>Student rating in classes of 100+, against a Faculty top&#8209;10% mark of 4.6</dt><dd class="num">4.7/5</dd></div>
         </dl>
         <p class="record-notes">
           <span id="note-a">a. Google Scholar, 10 September 2026 (SciVal: 2,967 citations, h-index 29).</span>
           <span id="note-b">b. 64 of 98 journal papers, by the Scopus percentile of the journal; 48 are in the top 5% and 88 in the top 25%.</span>
-          <span id="note-c">c. About US$3.0M at the HK$7.8 peg: HK$9.7M in external competitive grants (including an Australian Research Council Discovery Project), HK$9.2M in commissioned research and consultancy, and HK$4.8M in internal grants and a doctoral scholarship.</span>
+          <span id="note-c">c. About US$2.9M at the HK$7.8 peg: HK$9.7M in external competitive grants (including an Australian Research Council Discovery Project), HK$9.2M in commissioned research and consultancy, and HK$3.8M in internal grants.</span>
         </p>
       </div>
     </div>
@@ -893,20 +943,118 @@ html.modal-open { overflow: hidden; }
       <div class="bring-grid">
         <article class="bring-item">
           <h3>Research and funding</h3>
-          <p>I lead a Research Grants Council General Research Fund project on ageing buildings and a HK$2.37M Construction Industry Council grant for an AI workforce-forecasting platform. I was also a Chief Investigator on an Australian Research Council Discovery Project at the University of Newcastle.</p>
-          <p class="proof">98 journal papers, two-thirds of them in Scopus top&#8209;10% journals, with 4,899 citations on Google Scholar.</p>
+          <p class="bring-big"><span class="num">HK$22.6M</span><span class="bring-unit">across 28 funded projects</span></p>
+          <ul class="bring-list">
+            <li><strong class="num">8</strong><span>external competitive grants, <span class="num">HK$9.7M</span></span></li>
+            <li><strong class="num">10</strong><span>commissions from government, industry and professional bodies, <span class="num">HK$9.2M</span></span></li>
+            <li><strong class="num">10</strong><span>internal grants, <span class="num">HK$3.8M</span></span></li>
+          </ul>
+          <div class="fund-sig">
+            <h4 class="fund-sig-label">Signature funds</h4>
+            <ul class="fund-chips">
+              <li><strong>HKGRF</strong><span>General Research Fund, Hong Kong Research Grants Council</span></li>
+              <li><strong>ARC</strong><span>Australian Research Council Discovery Project</span></li>
+              <li><strong>PPR</strong><span>Public Policy Research Fund, HKSAR Government</span></li>
+              <li><strong>CIC</strong><span>Construction Industry Council</span></li>
+            </ul>
+          </div>
+          <button class="btn btn-secondary btn-compact btn-statement" type="button" data-open="stmt-research" aria-haspopup="dialog"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg>Research statement</button>
         </article>
         <article class="bring-item">
           <h3>Impact on practice</h3>
-          <p>My probabilistic risk models replaced fixed-percentage contingencies in the Development Bureau’s estimating practice, and my cash-flow model runs in its Project Surveillance System. Earlier, my workforce projections supported Hong Kong’s construction manpower planning.</p>
-          <p class="proof">HK$9.2M of commissioned research and consultancy for government and industry bodies, separate from grants.</p>
+          <p class="bring-big"><span class="num">10</span><span class="bring-unit">commissions for government, industry and professional bodies, 4 as lead consultant</span></p>
+          <ul class="bring-list bring-list-plain">
+            <li><span><strong>Development Bureau:</strong> risk-based contingency models adopted into its estimating practice, and an AI cash-flow model in its Project Surveillance System</span></li>
+            <li><span><strong>Construction Industry Council:</strong> manpower projections for workforce planning, and contractor-selection reference materials</span></li>
+            <li><span><strong>Hong Kong Institute of Surveyors:</strong> the evidence behind its guidance on maintenance project management</span></li>
+          </ul>
+          <p class="proof">HK$9.2M of commissioned research and consultancy since 2009, separate from research grants.</p>
+          <button class="btn btn-secondary btn-compact btn-statement" type="button" data-open="stmt-kt" aria-haspopup="dialog"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg>Knowledge transfer statement</button>
         </article>
         <article class="bring-item">
           <h3>Teaching and leadership</h3>
-          <p>I lead a 300-student BSc (Hons) in Surveying, led degrees in Australia through accreditation by the Royal Institution of Chartered Surveyors, the Australian Institute of Building and the Australian Institute of Project Management, and chair professional assessment panels for the Royal Institution of Chartered Surveyors. My AI-tutored flipped classroom logged over 22,000 student interactions.</p>
-          <p class="proof">Ratings of 4.7 out of 5 in classes of 100+; letters of appreciation from a Pro Vice-Chancellor and a head of department.</p>
+          <p class="bring-big"><span class="num">300+</span><span class="bring-unit">students in the BSc (Hons) in Surveying I lead</span></p>
+          <ul class="bring-list bring-list-plain">
+            <li><span>Rated <strong class="num">4.7 out of 5</strong> in classes of more than 100 students</span></li>
+            <li><span>Degrees taken through accreditation by the Royal Institution of Chartered Surveyors, the Australian Institute of Building and the Australian Institute of Project Management</span></li>
+            <li><span>An AI-tutored flipped classroom with <strong class="num">22,000+</strong> student interactions</span></li>
+          </ul>
+          <p class="proof">Letters of appreciation from a Pro Vice-Chancellor and a head of department.</p>
+          <button class="btn btn-secondary btn-compact btn-statement" type="button" data-open="stmt-teaching" aria-haspopup="dialog"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg>Teaching statement</button>
         </article>
       </div>
+      <dialog class="modal modal-narrow" id="stmt-research" aria-labelledby="stmt-research-title">
+        <div class="modal-head">
+          <div>
+            <p class="tutor-kicker">Research statement</p>
+            <h3 id="stmt-research-title">Predicting how infrastructure and buildings will perform</h3>
+          </div>
+          <button class="modal-close" type="button" aria-label="Close statement"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+        </div>
+        <div class="modal-body">
+          <p class="stmt-lede">I develop data-driven predictive and decision-support methods for infrastructure and built assets, a programme built over more than a decade in Australia and Hong Kong.</p>
+          <dl class="stmt-figs">
+              <div><dt>refereed journal articles</dt><dd class="num">98</dd></div>
+              <div><dt>in Scopus top&#8209;10% journals</dt><dd class="num">65%</dd></div>
+              <div><dt>PhD completions, three current</dt><dd class="num">6</dd></div>
+          </dl>
+          <ul class="stmt-points">
+              <li><strong>Quality.</strong> First-authored work in <em>Production Planning &amp; Control</em> links Reference Class Forecasting with project-specific risk; related studies extend prediction to cash flow and maintenance workforce demand.</li>
+              <li><strong>Independent funding.</strong> Principal Investigator on the General Research Fund, the Public Policy Research Fund and the Construction Industry Council’s Research and Technology Development Fund; previously Chief Investigator on an Australian Research Council Discovery Project.</li>
+              <li><strong>Researcher development.</strong> Six doctoral completions across three universities, the latest rated Excellent by its external examiners, with papers in <em>Applied Energy</em> and <em>Cities</em>.</li>
+              <li><strong>International standing.</strong> Adjunct Professor, University of Canberra; assessor for the Australian Research Council; Associate Editor, <em>Built Environment Project and Asset Management</em>; Editor, Edward Elgar’s <em>Research Companion to Infrastructure Asset Management</em>.</li>
+          </ul>
+          <p class="stmt-next"><strong>Next:</strong> testing the emerging predictive models in live operational decisions.</p>
+        </div>
+      </dialog>
+      <dialog class="modal modal-narrow" id="stmt-kt" aria-labelledby="stmt-kt-title">
+        <div class="modal-head">
+          <div>
+            <p class="tutor-kicker">Knowledge transfer statement</p>
+            <h3 id="stmt-kt-title">Research at work in government and industry</h3>
+          </div>
+          <button class="modal-close" type="button" aria-label="Close statement"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+        </div>
+        <div class="modal-body">
+          <p class="stmt-lede">I turn policy and industry problems into research questions, test the models on large operational datasets, and embed the results in government systems, industry planning and professional guidance.</p>
+          <dl class="stmt-figs">
+              <div><dt>government works departments</dt><dd class="num">5</dd></div>
+              <div><dt>risk, cost and schedule records</dt><dd class="num">1,000+</dd></div>
+              <div><dt>projects benchmarked</dt><dd class="num">900+</dd></div>
+          </dl>
+          <ul class="stmt-points">
+              <li><strong>Development Bureau, estimating.</strong> As Lead Consultant for the Estimating Using Risk Analysis reviews (2018, 2024), I turned cost-overrun research into a standard contingency method, piloted as a Monte Carlo workflow in the Bureau’s Integrated Capital Works Platform.</li>
+              <li><strong>Development Bureau, project surveillance.</strong> Since 2023, schedule benchmarks at P50, P85 and P90 for each works department, built from 900+ completed projects.</li>
+              <li><strong>Construction Industry Council, manpower planning.</strong> The labour-multiplier and stock-flow models I helped develop (2008–2012) still underpin the Council’s industry-wide workforce forecasts, as its 2026 methodology shows.</li>
+              <li><strong>Hong Kong Institute of Surveyors, professional guidance.</strong> As Lead Academic Consultant, I led the defects study behind the Institute’s <em>Professional Guide to Building Inspection, Volume 2</em>.</li>
+          </ul>
+          <p class="stmt-next"><strong>Next:</strong> a HK$2.37M Construction Industry Council project turning these models into an AI forecasting platform.</p>
+        </div>
+      </dialog>
+      <dialog class="modal modal-narrow" id="stmt-teaching" aria-labelledby="stmt-teaching-title">
+        <div class="modal-head">
+          <div>
+            <p class="tutor-kicker">Teaching statement</p>
+            <h3 id="stmt-teaching-title">Active, authentic and AI-enabled learning</h3>
+          </div>
+          <button class="modal-close" type="button" aria-label="Close statement"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+        </div>
+        <div class="modal-body">
+          <p class="stmt-lede">I teach from undergraduate to professional doctorate, drawing on my years in the surveying discipline at the Buildings Department and Architectural Services Department.</p>
+          <dl class="stmt-figs">
+              <div><dt>in classes of 100+ students</dt><dd class="num">4.7/5</dd></div>
+              <div><dt>students in the programme I lead</dt><dd class="num">300+</dd></div>
+              <div><dt>students in one AI-tutored class</dt><dd class="num">177</dd></div>
+          </dl>
+          <ul class="stmt-points">
+              <li><strong>Large classes.</strong> Rated 4.7 out of 5 in Construction Law (139 students) and Development Control Law (128), above the Faculty’s top-10% mark of 4.6.</li>
+              <li><strong>AI-supported flipped learning.</strong> A custom AI tutor for Project Management and Procurement lifted ratings for timely feedback from 4.3 to 4.6; the framework is documented for department-wide use.</li>
+              <li><strong>Programme leadership.</strong> Programme Leader, BSc (Hons) in Surveying; previously Deputy Programme Leader of the Doctor of International Real Estate and Construction, and Program Convenor of Newcastle’s Master of Project Management through its accreditation.</li>
+              <li><strong>Standards beyond my own classes.</strong> External Examiner for HKU SPACE, PhD examiner for RMIT University and the University of Technology Sydney, and one of five academics leading the AI redesign of the department’s surveying degrees.</li>
+          </ul>
+          <p class="stmt-next"><strong>Next:</strong> embedding AI and digital skills across the surveying curriculum.</p>
+        </div>
+      </dialog>
     </div>
   </section>
 
@@ -2259,27 +2407,33 @@ var THREE=(()=>{var vs=Object.defineProperty;var Fc=Object.getOwnPropertyDescrip
   });
   window.addEventListener("scroll", function () { if (tipFor) hideTip(); }, { passive: true });
 
-  // Project details window
-  var dlg = document.getElementById("tutor-dialog");
-  var opener = document.querySelector('[data-open="tutor-dialog"]');
-  if (dlg && opener) {
+  // Pop-up windows: AI tutor project details and the three statements
+  document.querySelectorAll("dialog.modal").forEach(function (dlg) {
+    var openers = document.querySelectorAll('[data-open="' + dlg.id + '"]');
+    if (!openers.length) return;
     var animated = dlg.querySelectorAll(".tutor-charts, .tutor-chart");
     var body = dlg.querySelector(".modal-body");
-    opener.addEventListener("click", function () {
-      if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
-      root.classList.add("modal-open");
-      dlg.appendChild(tip);
-      body.scrollTop = 0;
-      animated.forEach(function (el) { el.classList.remove("is-visible"); });
-      setTimeout(function () { animated.forEach(function (el) { el.classList.add("is-visible"); }); }, 80);
+    var lastOpener = openers[0];
+    openers.forEach(function (opener) {
+      opener.addEventListener("click", function () {
+        lastOpener = opener;
+        if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+        root.classList.add("modal-open");
+        dlg.appendChild(tip);
+        body.scrollTop = 0;
+        if (animated.length) {
+          animated.forEach(function (el) { el.classList.remove("is-visible"); });
+          setTimeout(function () { animated.forEach(function (el) { el.classList.add("is-visible"); }); }, 80);
+        }
+      });
     });
     function closeDialog() { if (typeof dlg.close === "function") dlg.close(); else { dlg.removeAttribute("open"); onClosed(); } }
-    function onClosed() { root.classList.remove("modal-open"); hideTip(); document.body.appendChild(tip); opener.focus(); }
+    function onClosed() { root.classList.remove("modal-open"); hideTip(); document.body.appendChild(tip); lastOpener.focus(); }
     dlg.addEventListener("close", onClosed);
     dlg.querySelector(".modal-close").addEventListener("click", closeDialog);
     dlg.addEventListener("click", function (e) { if (e.target === dlg) closeDialog(); });
     body.addEventListener("scroll", function () { if (tipFor) hideTip(); }, { passive: true });
-  }
+  });
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
